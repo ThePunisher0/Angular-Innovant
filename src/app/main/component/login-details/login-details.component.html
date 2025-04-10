@@ -1,0 +1,224 @@
+<div class="account-page">
+  <header class="site-header">
+    <div class="header-content">
+      <div class="logo">
+        <img src="assets/kland-logo.png" alt="K Land Logo" />
+      </div>
+      <div class="header-right">
+        <button class="lang-btn">العربية</button>
+        <button class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="main-title">
+    <h1>MY ACCOUNT</h1>
+    <p>Manage Your Fun: View Tickets, Book Zones, and Track Your Adventure!</p>
+  </section>
+
+  <section class="user-card">
+    <div class="user-info">
+      <div class="user-avatar">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="user-details">
+        <h3>test</h3>
+        <p>+965 98563214</p>
+        <p>test&#64;yopmail.com</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="main-container">
+    <aside class="sidebar">
+      <nav>
+        <a href="#" class="active">
+          <i class="fas fa-user"></i>
+          Edit Profile
+        </a>
+        <a href="#">
+          <i class="fas fa-question-circle"></i>
+          FAQS
+        </a>
+        <a href="#">
+          <i class="fas fa-envelope"></i>
+          Contact Us
+        </a>
+        <a href="#">
+          <i class="fas fa-trash"></i>
+          Delete Account
+        </a>
+        <a href="#" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </a>
+      </nav>
+    </aside>
+
+    <section class="form-content">
+      <h2>PERSONAL INFORMATION</h2>
+
+      <div class="profile-section">
+        <div class="profile-circle">
+          <div class="user-icon">
+            <i class="fas fa-user"></i>
+            <span class="email-icon">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
+        </div>
+        <div class="profile-text">
+          <h3>Test</h3>
+          <p>test&#64;yopmail.com</p>
+        </div>
+      </div>
+
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+              id="firstName"
+              type="text"
+              [(ngModel)]="user.firstName"
+              name="firstName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input
+              id="lastName"
+              type="text"
+              [(ngModel)]="user.lastName"
+              name="lastName"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              id="email"
+              type="email"
+              [(ngModel)]="user.email"
+              name="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <div class="phone-input">
+              <select [(ngModel)]="user.countryCode" name="countryCode">
+                <option value="965">965</option>
+              </select>
+              <input
+                id="phoneNumber"
+                type="text"
+                [(ngModel)]="user.phoneNumber"
+                name="phoneNumber"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="oldPassword">Old Password</label>
+            <div class="password-input">
+              <input
+                id="oldPassword"
+                [type]="showOldPassword ? 'text' : 'password'"
+                [(ngModel)]="user.oldPassword"
+                name="oldPassword"
+                placeholder="Enter your current password"
+              />
+              <button type="button" (click)="togglePasswordVisibility('old')">
+                <i
+                  [class]="showOldPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"
+                ></i>
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <div class="password-input">
+              <input
+                id="newPassword"
+                [type]="showNewPassword ? 'text' : 'password'"
+                [(ngModel)]="user.newPassword"
+                name="newPassword"
+                placeholder="Enter your new password"
+              />
+              <button type="button" (click)="togglePasswordVisibility('new')">
+                <i
+                  [class]="showNewPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label for="confirmPassword">Confirm New Password</label>
+            <div class="password-input">
+              <input
+                id="confirmPassword"
+                [type]="showConfirmPassword ? 'text' : 'password'"
+                [(ngModel)]="user.confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your new password"
+              />
+              <button
+                type="button"
+                (click)="togglePasswordVisibility('confirm')"
+              >
+                <i
+                  [class]="
+                    showConfirmPassword ? 'fas fa-eye-slash' : 'fas fa-eye'
+                  "
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="save-button">Save</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="quick-links">
+        <h3>Quick Links</h3>
+        <div class="links-grid">
+          <a href="#">Press</a>
+          <a href="#">FAQS</a>
+          <a href="#">Contact Us</a>
+          <a href="#">About Us</a>
+          <a href="#">Join the Team</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-left">
+          <p>PRIVACY POLICY</p>
+          <p>Copyright © 2024 K-Land.</p>
+          <p>All Rights Reserved.</p>
+        </div>
+        <div class="footer-center">
+          <p>FOLLOW US</p>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-right">
+          <p>PRESENTED BY</p>
+          <img src="assets/kland-logo.png" alt="K Land Logo" />
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

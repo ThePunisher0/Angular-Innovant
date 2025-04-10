@@ -1,0 +1,311 @@
+:host {
+  display: block;
+  background-color: #19a895;
+  min-height: 100vh;
+}
+
+header {
+  padding: 1rem 2rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.header-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.main-title {
+  text-align: center;
+  color: white;
+  padding: 2rem 0;
+}
+
+.main-title h1 {
+  font-size: 2.5rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.profile-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: #f8f8f8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-icon {
+  position: relative;
+  color: #666;
+  font-size: 2rem;
+}
+
+.email-icon {
+  position: absolute;
+  bottom: -10px;
+  right: -17px;
+  background-color: white;
+  border-radius: 13px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-icon i {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.profile-text h3 {
+  font-size: 1.25rem;
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+}
+
+.profile-text p {
+  color: #666;
+  margin: 0.25rem 0 0 0;
+  font-size: 0.9rem;
+}
+
+.user-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  width: 60px;
+  height: 60px;
+  background: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.main-container {
+  background: white;
+  border-radius: 10px 10px 0 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.sidebar {
+  width: 250px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  color: #666;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.sidebar a.active {
+  background: #f0f0f0;
+  color: #19a895;
+}
+
+.sidebar a.logout {
+  color: #ff4444;
+}
+
+.form-content {
+  flex: 1;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.phone-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.phone-input select {
+  width: 100px;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-input button {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+}
+
+.save-button {
+  width: 100%;
+  padding: 1rem;
+  background: #19a895;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+footer {
+  background: #19a895;
+  padding: 2rem;
+  color: white;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.quick-links h3 {
+  margin-bottom: 1rem;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.links-grid a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-center a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.footer-right img {
+  height: 30px;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+}
