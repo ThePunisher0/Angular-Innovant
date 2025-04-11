@@ -6,7 +6,7 @@
 
     <h1>ENTER YOUR EMAIL TO CONTINUE</h1>
 
-    <form (ngSubmit)="onSubmit()">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
       <div class="form-group">
         <input
           type="email"
@@ -14,7 +14,13 @@
           [(ngModel)]="email"
           name="email"
           required
+          email
+          #emailRef="ngModel"
         />
+        <div class="error" *ngIf="emailRef.invalid && (emailRef.touched || loginForm.submitted)">
+          <small *ngIf="emailRef.errors?.['required']">Email is required.</small>
+          <small *ngIf="emailRef.errors?.['email']">Invalid email format.</small>
+        </div>
       </div>
 
       <div class="form-group password-group">
@@ -24,6 +30,8 @@
           [(ngModel)]="password"
           name="password"
           required
+          minlength="6"
+          #passwordRef="ngModel"
         />
         <button
           type="button"
@@ -32,13 +40,25 @@
         >
           <i [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
         </button>
+        <div class="error" *ngIf="passwordRef.invalid && (passwordRef.touched || loginForm.submitted)">
+          <small *ngIf="passwordRef.errors?.['required']">Password is required.</small>
+          <small *ngIf="passwordRef.errors?.['minlength']">
+            Password must be at least 6 characters.
+          </small>
+        </div>
       </div>
 
       <div class="forgot-password">
         <a href="#">Forgot password?</a>
       </div>
 
-      <button type="submit" class="login-button">Login</button>
+      <button
+        type="submit"
+        class="login-button"
+        [disabled]="loginForm.invalid"
+      >
+        Login
+      </button>
 
       <div class="create-account">
         <span>Don't have an account? </span>

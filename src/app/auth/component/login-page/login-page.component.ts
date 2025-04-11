@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ServiceService } from '../../../service.service';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [FormsModule, CommonModule,HttpClientModule],
+  imports: [FormsModule, CommonModule, HttpClientModule],
   templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.scss'
+  styleUrl: './login-page.component.scss',
 })
 export class LoginPageComponent {
   showPassword = false;
@@ -27,7 +27,14 @@ export class LoginPageComponent {
     this.showPassword = !this.showPassword;
   }
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
+    if (!form.valid) {
+      Object.values(form.controls).forEach((control) => {
+        control.markAsTouched();
+      });
+      return;
+    }
+
     const payload = {
       email: this.email,
       password: this.password,
@@ -36,20 +43,18 @@ export class LoginPageComponent {
       device_model: '',
       app_version: '',
       os_version: '',
-      phone_code: '+965', 
-
-
+      phone_code: '+965',
     };
-  
-    const url = 'https://dev.myemprove.com/api/ver3api/student-login?lang=en&store=KW';
-  
+
+    const url =
+      'https://dev.myemprove.com/api/ver3api/student-login?lang=en&store=KW';
+
     this.http.post<any>(url, payload).subscribe({
       next: (res) => {
         console.log('API Response:', res);
-  
+
         if (res?.status === 200 && res?.data && res?.token) {
-          this.service.setUser(res.data); 
-  
+          this.service.setUser(res.data);
           this.router.navigate(['/login-details']);
         } else {
           alert(res?.message || 'Login failed.');
@@ -58,8 +63,7 @@ export class LoginPageComponent {
       error: (err) => {
         console.error('Login failed:', err);
         alert(err?.error?.message || 'Server error. Please try again later.');
-      }
+      },
     });
   }
-  
 }

@@ -1,16 +1,24 @@
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("/assets/pexels-asadphoto-457882.jpg");
+}
+
 .login-container {
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-size: cover;
-  background-position: center;
+  background-color: #19a895;
 }
 
 .login-box {
-  background: white;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
   padding: 40px;
   width: 100%;
   max-width: 440px;
